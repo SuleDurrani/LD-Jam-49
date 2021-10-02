@@ -28,7 +28,7 @@ public class ProjectileBehavior : MonoBehaviour
     {
         try{
             col.gameObject.GetComponent<HealthController>().takeDamage(damage);
-            if(col.gameObject.layer != 3 && col.gameObject != owner){
+            if(col.gameObject.layer == 6){
                 Destroy(this.gameObject);
             }
         }catch{
