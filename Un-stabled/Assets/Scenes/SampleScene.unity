@@ -142,6 +142,38 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036813, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a1aef2764f2abf4ca745dd16a09eff5, type: 3}
+    - target: {fileID: 4244776660467036816, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Radius
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036816, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036816, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Size.y
+      value: 1.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776660467036817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4244776660467036818, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -190,9 +222,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4244776661770298205, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4244776662069618816, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244776662069618817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
@@ -352,7 +392,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771204, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
