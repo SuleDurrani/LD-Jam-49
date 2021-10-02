@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct Save {
@@ -22,6 +23,21 @@ public class UpgradeManager : MonoBehaviour
         Load();
     }
 
+    private void Start() {
+        if (SceneManager.GetActiveScene().name == "MainScene") {
+            Canvas canvas = FindObjectOfType<Canvas>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject upgrade = Instantiate(Resources.Load("UpgradeItemPrefab")) as GameObject;
+                upgrade.transform.SetParent(canvas.transform);
+                upgrade.GetComponent<UpgradeItem>().itemName = "Test Code";
+                upgrade.GetComponent<UpgradeItem>().itemCost = 100 * i;
+                upgrade.transform.localPosition = new Vector3(-250, 140-70*i, 0);
+                upgrade.SetActive(true);
+            }
+        }
+    }
 
     private void OnDestroy() {
         Save();
