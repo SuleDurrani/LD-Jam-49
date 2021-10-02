@@ -24,6 +24,13 @@ public class windowEnemyBehaviour : MonoBehaviour
     [SerializeField]
     Sprite enemySprite;
 
+    [SerializeField]
+    Rigidbody2D weaponProjectile;
+    [SerializeField]
+    Rigidbody2D bulletProjectile;
+    [SerializeField]
+    Transform target;
+
 
     CircleCollider2D col;
     GameObject windowChild;
@@ -68,10 +75,31 @@ public class windowEnemyBehaviour : MonoBehaviour
                 hidden = !hidden;
                 return;
             }
-            // Debug.Log("elapsedTime: " + elapsedTime);
-            // Debug.Log("shootTime: " + shootTime);
-            if(elapsedTime%shootTime>.5 && (elapsedTime+Time.deltaTime)%shootTime<.5){
-                Debug.Log("BANG!");
+
+            if (elapsedTime % shootTime > .5 && (elapsedTime + Time.deltaTime) % shootTime < .5)
+            {
+                if (target)
+                {
+                    if (weaponProjectile)
+                    {
+                        Rigidbody2D wp = Instantiate(weaponProjectile);
+                        wp.transform.position = transform.position - ((transform.position - target.position).normalized / 2);
+                        wp.AddForce(-(transform.position - (target.position + new Vector3(0, Random.Range(3f, 7f), 0))) * 50f);
+                        wp.gameObject.GetComponent<ProjectileBehavior>().setOwner(this.gameObject);
+                    }
+                    else if (bulletProjectile)
+                    {
+                        Vector3 dir = -(transform.position - (target.position + new Vector3(0, Random.Range(-1.5f, 1.5f), 0))).normalized;
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 10f);
+                        if (hit.collider.gameObject.layer == 6)
+                        {
+                            hit.collider.gameObject.GetComponent<HealthController>().takeDamage(1);
+                        }
+                        Rigidbody2D wp = Instantiate(bulletProjectile);
+                        wp.transform.position = transform.position - ((transform.position - target.position).normalized / 2);
+                        wp.AddForce(dir * 5000f);
+                    }
+                }
             }
         }
         elapsedTime += Time.deltaTime;
