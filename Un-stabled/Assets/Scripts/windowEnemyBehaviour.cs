@@ -24,6 +24,11 @@ public class windowEnemyBehaviour : MonoBehaviour
     [SerializeField]
     Sprite enemySprite;
 
+    [SerializeField]
+    Rigidbody2D weaponProjectile;
+    [SerializeField]
+    Transform target;
+
 
     CircleCollider2D col;
     GameObject windowChild;
@@ -68,10 +73,14 @@ public class windowEnemyBehaviour : MonoBehaviour
                 hidden = !hidden;
                 return;
             }
-            // Debug.Log("elapsedTime: " + elapsedTime);
-            // Debug.Log("shootTime: " + shootTime);
+
             if(elapsedTime%shootTime>.5 && (elapsedTime+Time.deltaTime)%shootTime<.5){
-                Debug.Log("BANG!");
+                if(weaponProjectile){
+                    Rigidbody2D wp = Instantiate(weaponProjectile);
+                    wp.transform.position = transform.position - (transform.position - target.position).normalized;
+                    wp.AddForce(-(transform.position - (target.position + new Vector3(0,Random.Range(3f,7f),0)))*50f);
+                    wp.gameObject.GetComponent<ProjectileBehavior>().setOwner(this.gameObject);
+                }
             }
         }
         elapsedTime += Time.deltaTime;
