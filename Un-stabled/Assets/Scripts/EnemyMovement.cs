@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
+
     [SerializeField]
-    private float runSpeed = 40f;
+    private float runSpeed = 10f;
     private CharacterController2D controller;
     private float horizontalMove = 0f;
-    private float jumpAxis;
+    private bool jump;
+    [SerializeField]
+    private Transform target;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        jumpAxis = Input.GetAxisRaw("Jump");
+        float targetDirection = transform.position.x - target.position.x;
+        targetDirection = targetDirection > 0 ? -1 : 1;
+        horizontalMove = targetDirection * runSpeed;
+        jump = Random.Range(0f,1f) > .95f;
     }
 
     // FixedUpdate is called once per tick
     void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpAxis > 0);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
     }
 }
