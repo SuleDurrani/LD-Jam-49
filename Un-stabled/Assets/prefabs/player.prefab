@@ -30,7 +30,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496448710}
-  - {fileID: 6423431502847460384}
   m_Father: {fileID: 4244776660467036818}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +101,7 @@ MonoBehaviour:
   mouse: {fileID: 0}
   bulletStronk: 1000
   bulletFirePoint: {fileID: 6423431502847460384}
+  gunPrefab: {fileID: 0}
 --- !u!1 &4244776660467036812
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,12 +396,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8032784970667805361}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -1.16, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.23999998, y: 0.089999855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7160515040569176197}
-  m_RootOrder: 1
+  m_Father: {fileID: 496448710}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3076892700040964343
 PrefabInstance:

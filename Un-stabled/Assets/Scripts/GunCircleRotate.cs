@@ -15,6 +15,9 @@ public class GunCircleRotate : MonoBehaviour
     [SerializeField]
     Transform bulletFirePoint;
 
+    [SerializeField]
+    Transform gunPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,7 @@ public class GunCircleRotate : MonoBehaviour
 
         float angle = angleFinder(entityLocation, aimLocation);
         //Debug.Log(angle.ToString());
-        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
 
         //shoot gun
