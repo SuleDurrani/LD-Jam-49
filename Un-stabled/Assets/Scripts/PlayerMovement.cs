@@ -22,6 +22,17 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         jumpAxis = Input.GetAxisRaw("Jump");
+        if (transform.position.y < -100)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0,110,0), Vector2.down, Mathf.Infinity);
+            if (hit.collider.gameObject.layer == 3)
+            {
+                transform.position = hit.transform.position + new Vector3(0,2.5f,0);
+            }else{
+                transform.position = new Vector3(0,0.5f,0);
+            }
+            GetComponent<Rigidbody2D>().velocity = Vector2.up;
+        }
     }
 
     // FixedUpdate is called once per tick
