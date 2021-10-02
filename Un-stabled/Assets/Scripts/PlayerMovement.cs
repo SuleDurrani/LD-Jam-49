@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController2D controller;
     private float horizontalMove = 0f;
     private float jumpAxis;
+    private bool rageMode = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     // FixedUpdate is called once per tick
     void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpAxis > 0);
+        controller.Move((horizontalMove * (rageMode?1.2f:1f)) * Time.fixedDeltaTime, false, jumpAxis > 0);
     }
 }
