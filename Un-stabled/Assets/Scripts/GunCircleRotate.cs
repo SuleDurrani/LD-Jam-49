@@ -12,6 +12,11 @@ public class GunCircleRotate : MonoBehaviour
     private MouseFollower mouse;
     // Bullet force
     public int bulletStronk = 1000;
+    [SerializeField]
+    Transform bulletFirePoint;
+
+    [SerializeField]
+    Transform gunPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +44,7 @@ public class GunCircleRotate : MonoBehaviour
             Vector3 direction = (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.right);
             //EOBlack magic
             bullet.AddForce(direction * bulletStronk);
-            bullet.transform.position = transform.position;
+            bullet.transform.position = bulletFirePoint.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
             Debug.Log("BANG");
         }
