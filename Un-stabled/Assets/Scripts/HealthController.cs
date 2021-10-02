@@ -35,8 +35,8 @@ public class HealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow)) heal(1);
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) takeDamage(1);
+        // if(Input.GetKeyDown(KeyCode.RightArrow)) heal(1);
+        // if(Input.GetKeyDown(KeyCode.LeftArrow)) takeDamage(1);
     }
 
     public void takeDamage(int damage) {
