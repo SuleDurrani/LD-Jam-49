@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1016778405391013674}
   - component: {fileID: 1016778405391013677}
   - component: {fileID: 1016778405391013675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: windowEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,8 @@ MonoBehaviour:
   inSprite: {fileID: 5967498823534456208, guid: b14f70d8bef117f5f8e61d48bcc1d29b, type: 3}
   outSprite: {fileID: 2836472142996890103, guid: b14f70d8bef117f5f8e61d48bcc1d29b, type: 3}
   enemySprite: {fileID: 21300000, guid: 5b999da9cbb4b1ac5becaaa1e9f34e16, type: 3}
+  weaponProjectile: {fileID: 0}
+  target: {fileID: 0}
 --- !u!58 &1016778405391013675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -78,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016778405558916834}
   - component: {fileID: 1016778405558916835}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016778405635121703}
   - component: {fileID: 1016778405635121700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: windowman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
