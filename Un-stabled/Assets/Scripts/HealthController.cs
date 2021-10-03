@@ -53,4 +53,8 @@ public class HealthController : MonoBehaviour
         max = newMax;
     }
 
+    public bool isAlive() {
+        return current > 0;
+    }
+
 }

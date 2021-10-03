@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public HealthController health;
-
     public RectTransform fullApples;
     public RectTransform halfApples;
 
