@@ -32,6 +32,12 @@ public class playerStateHandler : MonoBehaviour
         if(!health.isAlive()){
             movement.enabled = false;
             anim.SetBool("walking",false);
+            GetComponent<SpriteRenderer>().color = new Color(255,0,0);
+
+            ParticleSystem blood = Instantiate(bloodPrefab);
+            blood.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            blood.transform.position = transform.position;
+            blood.Play();
         }
         if(health.currentHealth() < lastHealth){
             ParticleSystem blood = Instantiate(bloodPrefab);
@@ -42,3 +48,4 @@ public class playerStateHandler : MonoBehaviour
         lastHealth = health.currentHealth();
     }
 }
+ 
