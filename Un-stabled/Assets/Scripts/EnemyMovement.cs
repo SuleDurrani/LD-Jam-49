@@ -10,9 +10,11 @@ public class EnemyMovement : MonoBehaviour
     private CharacterController2D controller;
     private float horizontalMove = 0f;
     private bool jump;
-    public Transform target;
     Animator animator;
 
+    public Transform target;
+    [SerializeField]
+    private float targetRange;
 
     // Start is called before the first frame update
     void Start()
@@ -24,15 +26,44 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float targetDirection = transform.position.x - target.position.x;
-        targetDirection = targetDirection > 0 ? -1 : 1;
-        horizontalMove = targetDirection * runSpeed;
-        jump = Random.Range(0f,1f) > .95f;
+        float dist = distanceCalc(transform.position, target.position);
+        //Debug.Log(dist.ToString());
+
+        if (dist > targetRange)
+        {
+            // Far Range
+            float targetDirection = transform.position.x - target.position.x;
+            targetDirection = targetDirection > 0 ? -1 : 1;
+            horizontalMove = targetDirection * runSpeed;
+            jump = Random.Range(0f, 1f) > .95f;
+        }
+        else if (dist < (targetRange / 2))
+        {
+            /*
+            // Close Range
+            float targetDirection = transform.position.x - target.position.x;
+            targetDirection = targetDirection > 0 ? -1 : 1;
+            horizontalMove = targetDirection * runSpeed;
+            jump = Random.Range(0f, 1f) > .95f;
+            horizontalMove = horizontalMove * -1;
+            */
+        }
+        else
+        {
+            // Middle Range
+            horizontalMove = 0;
+        }
     }
 
     // FixedUpdate is called once per tick
     void FixedUpdate() {
         animator.SetBool("walking",Mathf.Abs(horizontalMove)>0.01f);
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+    }
+
+
+    float distanceCalc(Vector2 A, Vector2 B)
+    {
+        return Vector3.Distance(A, B);
     }
 }
