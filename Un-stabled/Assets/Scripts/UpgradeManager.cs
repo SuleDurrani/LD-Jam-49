@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,11 +9,36 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public struct Save {
     public int points;
+    public List<int> unlockedUpgrades;
 
 }
 
+public class Upgrade {
+    public int id;
+    public string name;
+    public string description;
+    public int cost;
+    public bool unlocked;
+}
+
+
 public class UpgradeManager : MonoBehaviour
 {
+    public List<Upgrade> upgrades = new List<Upgrade>() {
+        new Upgrade() {id = 0, name = "Sugar Cubes",            cost = 50,  description="Speed Up"},
+        new Upgrade() {id = 1, name = "Apples",                 cost = 75,  description="Healing"},
+        new Upgrade() {id = 2, name = "Hey Protein",            cost = 100, description="Health Up"},
+        new Upgrade() {id = 3, name = "Rosettes",               cost = 125, description="Dmg Up"},
+        new Upgrade() {id = 4, name = "[Jump Height]",          cost = 100, description="Jump Height"},
+        new Upgrade() {id = 5, name = "[!Bullet Speed Down]",   cost = 100, description="Enemy Bullet Speed Down"},
+        new Upgrade() {id = 6, name = "[!Speed Down]",          cost = 100, description="Enemy Speed Down"},
+        new Upgrade() {id = 7, name = "[!Fire Rate Down]",      cost = 100, description="Enemy Fire Rate Down"},
+        new Upgrade() {id = 8, name = "[!Health Down]",         cost = 100, description="Enemy Health Down"},
+        new Upgrade() {id = 9, name = "[Double Jump]",          cost = 100, description="Double Jump"},
+        new Upgrade() {id =10, name = "[Faster Rage Charge]",   cost = 100, description="Faster Rage Charge"},
+        new Upgrade() {id =11, name = "[Multishot]",            cost = 100, description="Multishot"},
+        new Upgrade() {id =12, name = "[Longer Rage]",          cost = 100, description="Longer Range"},
+    };
     private int _upgradePoints = 0;
     public int upgradePoints {
         get { return _upgradePoints;}
@@ -23,22 +49,6 @@ public class UpgradeManager : MonoBehaviour
         Load();
     }
 
-    private void Start() {
-        if (SceneManager.GetActiveScene().name == "MainScene") {
-            Canvas canvas = FindObjectOfType<Canvas>();
-
-            for (int i = 0; i < 3; i++)
-            {
-                GameObject upgrade = Instantiate(Resources.Load("UpgradeItemPrefab")) as GameObject;
-                upgrade.transform.SetParent(canvas.transform);
-                upgrade.GetComponent<UpgradeItem>().itemName = "Test Code";
-                upgrade.GetComponent<UpgradeItem>().itemCost = 100 * i;
-                upgrade.transform.localPosition = new Vector3(-250, 140-70*i, 0);
-                upgrade.SetActive(true);
-            }
-        }
-    }
-
     private void OnDestroy() {
         Save();
     }
@@ -46,6 +56,8 @@ public class UpgradeManager : MonoBehaviour
     public void Save() {
         Save save = new Save();
         save.points = _upgradePoints;
+
+        save.unlockedUpgrades = upgrades.FindAll(x => x.unlocked).Select(x => x.id).ToList();
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
@@ -61,6 +73,11 @@ public class UpgradeManager : MonoBehaviour
             file.Close();
 
             _upgradePoints = save.points;
+            foreach (Upgrade u in upgrades) {
+                if (save.unlockedUpgrades.Contains(u.id)) {
+                    u.unlocked = true;
+                }
+            }
         }
     }
 
@@ -77,6 +94,14 @@ public class UpgradeManager : MonoBehaviour
         if (points > upgradePoints) return false;
         _upgradePoints -= points;
         return true;
+    }
+
+    public bool Purchase(Upgrade item) {
+        if (SpendPoints(item.cost)) {
+            item.unlocked = true;
+            return true;
+        }
+        return false;
     }
 
 }

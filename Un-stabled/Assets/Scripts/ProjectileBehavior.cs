@@ -5,8 +5,11 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
 
-    public int damage = 1;
+    int damage = 1;
     GameObject owner;
+    [SerializeField]
+    bool destroyOnContact = false;
+    public bool isPlayer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +17,7 @@ public class ProjectileBehavior : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update is called once per framehealthBar
     void Update()
     {
         
@@ -27,9 +30,25 @@ public class ProjectileBehavior : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         try{
-            col.gameObject.GetComponent<HealthController>().takeDamage(damage);
-            if(col.gameObject.layer == 6){
+            if(isPlayer && col.gameObject.layer == 6){
+                return;
+            }
+            if(!isPlayer && col.gameObject.layer == 7){
+                return;
+            }
+
+            if(!isPlayer && col.gameObject.layer == 6){
+                col.gameObject.GetComponent<HealthController>().takeDamage(damage);
                 Destroy(this.gameObject);
+            }else if(isPlayer && col.gameObject.layer == 7){
+                col.gameObject.GetComponent<HealthController>().takeDamage(damage);
+                Destroy(this.gameObject);
+            }else
+            {
+                if (destroyOnContact)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }catch{
 

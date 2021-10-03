@@ -10,8 +10,9 @@ public class EnemyMovement : MonoBehaviour
     private CharacterController2D controller;
     private float horizontalMove = 0f;
     private bool jump;
-    [SerializeField]
-    private Transform target;
+    Animator animator;
+
+    public Transform target;
     [SerializeField]
     private float targetRange;
 
@@ -19,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -67,8 +69,8 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // FixedUpdate is called once per tick
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
+        animator.SetBool("walking",Mathf.Abs(horizontalMove)>0.01f);
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
     }
 

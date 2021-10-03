@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GunCircleRotate : MonoBehaviour
 {
-    Vector3 entityLocation; // This the "gun owner" position. e.g. The character holding the gun object
     Vector3 aimLocation;    // This is the aim location. 
     [SerializeField]
     Rigidbody2D bulletObject;
@@ -15,25 +14,27 @@ public class GunCircleRotate : MonoBehaviour
     [SerializeField]
     Transform bulletFirePoint;
 
-    [SerializeField]
-    Transform gunPrefab;
-
     CharacterController2D owner;
 
     // Start is called before the first frame update
     void Start()
     {
-        owner = transform.parent.parent.GetComponent<CharacterController2D>();
+        try{
+            owner = transform.parent.parent.GetComponent<CharacterController2D>();
+        }catch{
+            try{
+                owner = transform.parent.GetComponent<CharacterController2D>();
+            }catch{
+                Debug.Log("Weapon likely attached to invalid shooter");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        entityLocation = transform.position;
-        aimLocation = mouse.getMousePosition();
-
-        float angle = angleFinder(entityLocation, aimLocation);
-        //Debug.Log(angle.ToString());
+        float angle = angleFinder(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        
         transform.rotation = Quaternion.Euler(0, 0, angle);
         if(owner.m_FacingRight){
             transform.localScale = new Vector3(1, 1, 1);
@@ -46,8 +47,9 @@ public class GunCircleRotate : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Rigidbody2D bullet = Instantiate(bulletObject);
+            bullet.GetComponent<ProjectileBehavior>().isPlayer = owner.gameObject.layer == 6;
             //Black magic
-            Vector3 direction = (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.right);
+            Vector3 direction = (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.right);
             //EOBlack magic
             bullet.AddForce(direction * bulletStronk);
             bullet.transform.position = bulletFirePoint.position;
