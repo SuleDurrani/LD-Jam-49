@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
             jump = Random.Range(0f, 1f) > .95f;
             horizontalMove = horizontalMove * -1;
             */
+            
         }
         else
         {
