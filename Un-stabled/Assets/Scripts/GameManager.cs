@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
     private static UpgradeManager _upgrades;
     public static UpgradeManager Upgrades { get { return _upgrades; } }
 
+    private static projectileHelper _projMath;
+    public static projectileHelper ProjMath { get { return _projMath; } }
+
     public GameObject prefab;
 
     private void Awake()
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour {
         } else {
             _instance = this;
             _upgrades = this.gameObject.AddComponent<UpgradeManager>();
-
+            _projMath = this.gameObject.AddComponent<projectileHelper>();
         }
     }
 

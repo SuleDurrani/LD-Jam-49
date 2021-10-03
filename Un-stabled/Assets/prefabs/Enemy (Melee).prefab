@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1380770304831681670}
   - component: {fileID: 1380770304831681673}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy (Melee)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
-  target: {fileID: 0}
+  target: {fileID: 4244776660467036818, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
 --- !u!1 &1380770305515847170
 GameObject:
   m_ObjectHideFlags: 0

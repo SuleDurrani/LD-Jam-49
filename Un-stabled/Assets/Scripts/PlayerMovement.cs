@@ -10,11 +10,14 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove = 0f;
     private float jumpAxis;
     private bool rageMode = false;
+    Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     // FixedUpdate is called once per tick
     void FixedUpdate() {
+        animator.SetBool("walking",Mathf.Abs(horizontalMove)>0.01f);
         controller.Move((horizontalMove * (rageMode?1.2f:1f)) * Time.fixedDeltaTime, false, jumpAxis > 0);
     }
 }
