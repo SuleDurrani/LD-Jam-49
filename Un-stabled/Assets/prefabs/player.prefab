@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: cd850f1f874bdb95c890dece79480b84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,6 +102,22 @@ MonoBehaviour:
   bulletStronk: 1000
   bulletFirePoint: {fileID: 6423431502847460384}
   gunPrefab: {fileID: 0}
+--- !u!58 &7420339646789474106
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496448705}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.116490446, y: 0.05487193}
+  serializedVersion: 2
+  m_Radius: 0.19531254
 --- !u!1 &4244776660467036812
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +232,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 4244776662069618817}
   m_CeilingCheck: {fileID: 4244776661770298205}
   m_CrouchDisableCollider: {fileID: 4244776660467036817}
+  m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -454,12 +471,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 3076892700083493939, guid: a4929d990ac0e6b76aef00c37905455c, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3076892700083493942, guid: a4929d990ac0e6b76aef00c37905455c, type: 3}
       propertyPath: m_Name
       value: gun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4929d990ac0e6b76aef00c37905455c, type: 3}
+--- !u!1 &496448705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3076892700083493942, guid: a4929d990ac0e6b76aef00c37905455c, type: 3}
+  m_PrefabInstance: {fileID: 3076892700040964343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &496448710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3076892700083493937, guid: a4929d990ac0e6b76aef00c37905455c, type: 3}

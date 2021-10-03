@@ -15,15 +15,20 @@ public class GunCircleRotate : MonoBehaviour
     [SerializeField]
     Transform bulletFirePoint;
 
-    [SerializeField]
-    Transform gunPrefab;
-
     CharacterController2D owner;
 
     // Start is called before the first frame update
     void Start()
     {
-        owner = transform.parent.parent.GetComponent<CharacterController2D>();
+        try{
+            owner = transform.parent.parent.GetComponent<CharacterController2D>();
+        }catch{
+            try{
+                owner = transform.parent.GetComponent<CharacterController2D>();
+            }catch{
+                Debug.Log("Weapon likely attached to invalid shooter");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -46,8 +51,9 @@ public class GunCircleRotate : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Rigidbody2D bullet = Instantiate(bulletObject);
+            bullet.GetComponent<ProjectileBehavior>().isPlayer = owner.gameObject.layer == 6;
             //Black magic
-            Vector3 direction = (Vector2)(Quaternion.Euler(0,0,angle) * Vector2.right);
+            Vector3 direction = (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.right);
             //EOBlack magic
             bullet.AddForce(direction * bulletStronk);
             bullet.transform.position = bulletFirePoint.position;

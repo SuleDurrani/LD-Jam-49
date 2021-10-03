@@ -10,8 +10,7 @@ public class EnemyMovement : MonoBehaviour
     private CharacterController2D controller;
     private float horizontalMove = 0f;
     private bool jump;
-    [SerializeField]
-    private Transform target;
+    public Transform target;
 
     // Start is called before the first frame update
     void Start()
