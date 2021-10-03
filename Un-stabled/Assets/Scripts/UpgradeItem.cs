@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class UpgradeItem : MonoBehaviour
 {
-    public int itemCost;
-    public string itemName;
+    public Upgrade upgrade;
     // Start is called before the first frame update
-    void Start()
-    {
-        this.gameObject.GetComponentInChildren<Text>().text = itemName;
-        this.gameObject.GetComponentsInChildren<Text>()[1].text = itemCost.ToString() + "p";
+    void Start() {
+        GetComponentInChildren<Text>().text = upgrade.name;
+        GetComponentsInChildren<Text>()[1].text = upgrade.cost.ToString() + "p";
+        GetComponentsInChildren<Text>()[2].text = upgrade.description;
+        GetComponentInChildren<Button>().onClick.AddListener(Purchse);
+        if (upgrade.unlocked) {
+            GetComponentInChildren<Button>().interactable = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Purchse() {
+        if (GameManager.Upgrades.Purchase(upgrade)) {
+            GetComponentInChildren<Button>().interactable = false;
+        }
     }
 }
