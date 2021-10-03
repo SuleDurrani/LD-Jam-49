@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
     private Stack<GameObject> menus = new Stack<GameObject>();
     public GameObject mainMenu;
