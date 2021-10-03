@@ -36,6 +36,7 @@ public class ProjectileBehavior : MonoBehaviour
             if(!isPlayer && col.gameObject.layer == 7){
                 return;
             }
+
             if(!isPlayer && col.gameObject.layer == 6){
                 col.gameObject.GetComponent<HealthController>().takeDamage(damage);
                 Destroy(this.gameObject);

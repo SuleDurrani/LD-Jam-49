@@ -57,4 +57,7 @@ public class HealthController : MonoBehaviour
         return current > 0;
     }
 
+    public int currentHealth() {
+        return current;
+    }
 }
