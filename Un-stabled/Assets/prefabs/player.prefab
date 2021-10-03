@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!58 &7420339646789474106
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496448705}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.116490446, y: 0.05487193}
+  serializedVersion: 2
+  m_Radius: 0.19531254
 --- !u!1 &2156347770292569492
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,23 +117,6 @@ MonoBehaviour:
   mouse: {fileID: 0}
   bulletStronk: 1000
   bulletFirePoint: {fileID: 6423431502847460384}
-  gunPrefab: {fileID: 0}
---- !u!58 &7420339646789474106
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496448705}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.116490446, y: 0.05487193}
-  serializedVersion: 2
-  m_Radius: 0.19531254
 --- !u!1 &4244776660467036812
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4244776660467036812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.5, z: 0}
+  m_LocalPosition: {x: -5, y: 57.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4244776662069618817}

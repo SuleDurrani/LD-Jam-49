@@ -80,11 +80,13 @@ public class windowEnemyBehaviour : MonoBehaviour
             {
                 if (target)
                 {
-                    if (weaponProjectile)
+                    if (weaponProjectile != null)
                     {
+                        Vector3 targetAim = target.position;
+                        targetAim += (Vector3.up * Random.Range(1f,3f));
                         Rigidbody2D wp = Instantiate(weaponProjectile);
                         wp.transform.position = transform.position - ((transform.position - target.position).normalized / 2);
-                        wp.AddForce(GameManager.ProjMath.trajectoryVectorToHitTarget(transform,target, 500f));
+                        wp.AddForce(GameManager.ProjMath.trajectoryVectorToHitTarget(transform.position,targetAim, 500f));
                         wp.gameObject.GetComponent<ProjectileBehavior>().setOwner(this.gameObject);
                     }
                     else if (bulletProjectile)

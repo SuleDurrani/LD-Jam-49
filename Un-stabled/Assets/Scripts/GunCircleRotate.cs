@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GunCircleRotate : MonoBehaviour
 {
-    Vector3 entityLocation; // This the "gun owner" position. e.g. The character holding the gun object
     Vector3 aimLocation;    // This is the aim location. 
     [SerializeField]
     Rigidbody2D bulletObject;
@@ -34,11 +33,8 @@ public class GunCircleRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        entityLocation = transform.position;
-        aimLocation = mouse.getMousePosition();
-
-        float angle = angleFinder(entityLocation, aimLocation);
-        //Debug.Log(angle.ToString());
+        float angle = angleFinder(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        
         transform.rotation = Quaternion.Euler(0, 0, angle);
         if(owner.m_FacingRight){
             transform.localScale = new Vector3(1, 1, 1);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ced2af9941c1c6287eab589ca16969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 667510595, guid: c32c2f6d2d962bf9a93fde1d43e8f10e, type: 3}
+  projectile: {fileID: -5696655903408191657, guid: 4167f5113a4b57628b60b266116b377a, type: 3}
 --- !u!1001 &9151343376255358161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 1380770304831681672, guid: 42d627e666e2c05869481591cd25bbbf, type: 3}
       propertyPath: m_Name
       value: Enemy (ranged)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380770304831681673, guid: 42d627e666e2c05869481591cd25bbbf, type: 3}
+      propertyPath: target
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d627e666e2c05869481591cd25bbbf, type: 3}

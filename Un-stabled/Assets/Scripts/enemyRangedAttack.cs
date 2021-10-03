@@ -22,11 +22,11 @@ public class enemyRangedAttack : MonoBehaviour
         {
             if (Random.Range(0f, 1f) > 0.99f)
             {
-                Transform targetAim = target;
-                targetAim.position += (Vector3.up/4f);
+                Vector3 targetAim = target.position;
+                targetAim += (Vector3.up * Random.Range(1f,5f));
                 Rigidbody2D weaponProjectile = Instantiate(projectile);
                 weaponProjectile.transform.position = transform.position - ((transform.position - target.position).normalized / 2);
-                weaponProjectile.AddForce(GameManager.ProjMath.trajectoryVectorToHitTarget(transform,target, 500f));
+                weaponProjectile.AddForce(GameManager.ProjMath.trajectoryVectorToHitTarget(transform.position,targetAim, 500f));
                 weaponProjectile.gameObject.GetComponent<ProjectileBehavior>().setOwner(this.gameObject);
             }
         }
