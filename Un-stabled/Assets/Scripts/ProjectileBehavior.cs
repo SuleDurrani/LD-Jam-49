@@ -5,7 +5,8 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
 
-    public float damage = 1f;
+    public int damage = 1;
+    GameObject owner;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,15 @@ public class ProjectileBehavior : MonoBehaviour
         
     }
 
+    public void setOwner(GameObject owner){
+        this.owner = owner;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         try{
-            // col.gameObject.GetComponent<Health>().takeDamage(damage);
-            if(col.gameObject.layer != 3){
+            col.gameObject.GetComponent<HealthController>().takeDamage(damage);
+            if(col.gameObject.layer == 6){
                 Destroy(this.gameObject);
             }
         }catch{

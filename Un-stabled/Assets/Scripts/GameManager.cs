@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour {
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
+
+    private static UpgradeManager _upgrades;
+    public static UpgradeManager Upgrades { get { return _upgrades; } }
+
+    public GameObject prefab;
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+            _upgrades = this.gameObject.AddComponent<UpgradeManager>();
+
+        }
+    }
+
+    public void StartGame() {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+}
