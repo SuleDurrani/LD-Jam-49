@@ -18,10 +18,12 @@ public class GunCircleRotate : MonoBehaviour
     [SerializeField]
     Transform gunPrefab;
 
+    CharacterController2D owner;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        owner = transform.parent.parent.GetComponent<CharacterController2D>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,11 @@ public class GunCircleRotate : MonoBehaviour
         float angle = angleFinder(entityLocation, aimLocation);
         //Debug.Log(angle.ToString());
         transform.rotation = Quaternion.Euler(0, 0, angle);
-
+        if(owner.m_FacingRight){
+            transform.localScale = new Vector3(1, 1, 1);
+        }else{
+            transform.localScale = new Vector3(-1, -1, 1);
+        }
 
         //shoot gun
 
@@ -46,7 +52,6 @@ public class GunCircleRotate : MonoBehaviour
             bullet.AddForce(direction * bulletStronk);
             bullet.transform.position = bulletFirePoint.position;
             bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
-            Debug.Log("BANG");
         }
     }
 

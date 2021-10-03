@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 29a1c95a1a3fc3731ae4cb135f9c0cb8
+guid: e6359912104a1ce2a923801ee1103c99
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5071355931424273626
+    second: platformsheet_0
+  - first:
+      213: -832390089666446477
+    second: platformsheet_1
+  - first:
+      213: 6429121989036560879
+    second: platformsheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -137,11 +146,92 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: platformsheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -9, y: 9}
+        - {x: -16, y: 7}
+        - {x: -16, y: -3}
+        - {x: -9, y: -9}
+        - {x: 0, y: -12}
+        - {x: 16, y: -16}
+        - {x: 16, y: 11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad43d16b953116640800000000000000
+      internalID: 5071355931424273626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformsheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 11}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b30e6af91c274f0800000000000000
+      internalID: -832390089666446477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platformsheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 9, y: 9}
+        - {x: -16, y: 11}
+        - {x: -16, y: -16}
+        - {x: 0, y: -12}
+        - {x: 11, y: -8}
+        - {x: 16, y: -2}
+        - {x: 16, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe15d26d264d83950800000000000000
+      internalID: 6429121989036560879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: dd688e881836dfd4c94e681c760926c8
     internalID: 0
     vertices: []
     indices: 
