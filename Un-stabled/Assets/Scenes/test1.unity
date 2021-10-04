@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 476071cb67ac6f3e8b07f1e4c267eb19, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ed0f996d4877dc7a395d8e6e0d93d7de, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 722310811}
+    - target: {fileID: 6072715311903739152, guid: f8c3e5ffd9734bf4eb13d85305931f87, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 722310806}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8c3e5ffd9734bf4eb13d85305931f87, type: 3}
 --- !u!1001 &376670227
@@ -364,6 +368,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7782374835792188594, guid: a7913ef0f635be04990cb592d69bf568, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 722310806}
     - target: {fileID: 7782374835937253347, guid: a7913ef0f635be04990cb592d69bf568, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6569,7 +6577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711180519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalPosition: {x: 9.04, y: 0, z: 100}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 16702006}
@@ -6630,6 +6638,11 @@ SpriteRenderer:
 --- !u!1 &722310799 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4244776660467036812, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+  m_PrefabInstance: {fileID: 1047086170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &722310806 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4244776660467036817, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
   m_PrefabInstance: {fileID: 1047086170}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &722310811 stripped
@@ -6753,7 +6766,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7768421, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6788,6 +6801,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1581465626}
+    - target: {fileID: 432332317, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: bulletObject
+      value: 
+      objectReference: {fileID: 9204935069461328314, guid: 74159d586a847bd4993b44b1287f0942, type: 3}
+    - target: {fileID: 432332317, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
+      propertyPath: bulletStronk
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4244776660467036812, guid: bbbdab893aa3c3d9a9f568981d2971eb, type: 3}
       propertyPath: m_Name
       value: player
