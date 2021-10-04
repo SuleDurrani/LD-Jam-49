@@ -6855,11 +6855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1016778405391013674, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.738686
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 1016778405391013674, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.2831388
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 1016778405391013674, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6897,6 +6897,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: windowEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1016778405391013677, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 722310811}
+    - target: {fileID: 1016778405391013677, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
+      propertyPath: bulletProjectile
+      value: 
+      objectReference: {fileID: 788968127564971751, guid: 9c527113703d28ba19b7bb407d48a9f2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
 --- !u!1 &811340997
