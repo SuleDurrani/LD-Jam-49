@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 5147584826761647610, guid: f8c3e5ffd9734bf4eb13d85305931f87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5147584826761647611, guid: f8c3e5ffd9734bf4eb13d85305931f87, type: 3}
       propertyPath: target
       value: 
@@ -430,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782374835937253352, guid: a7913ef0f635be04990cb592d69bf568, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7782374835937253353, guid: a7913ef0f635be04990cb592d69bf568, type: 3}
       propertyPath: target
@@ -6897,6 +6901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: windowEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1016778405391013676, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1016778405391013677, guid: 9c2cd63046c9c81a5809f911bee1af03, type: 3}
       propertyPath: target
       value: 
@@ -7077,6 +7085,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1430328655570758520, guid: 6e6e7569c05a1da4bb6cf0646be1195f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430328655570758520, guid: 6e6e7569c05a1da4bb6cf0646be1195f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2896626188569873478, guid: 6e6e7569c05a1da4bb6cf0646be1195f, type: 3}
+      propertyPath: isPlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4888346680743671837, guid: 6e6e7569c05a1da4bb6cf0646be1195f, type: 3}
       propertyPath: target
       value: 
@@ -7457,6 +7477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (Melee)
       objectReference: {fileID: 0}
+    - target: {fileID: 1380770304831681672, guid: 42d627e666e2c05869481591cd25bbbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1380770304831681673, guid: 42d627e666e2c05869481591cd25bbbf, type: 3}
       propertyPath: target
       value: 
@@ -7521,6 +7545,10 @@ PrefabInstance:
     - target: {fileID: 7793867378746810457, guid: 5250e01f2abcdacd498637f41f1e49cd, type: 3}
       propertyPath: m_Name
       value: Enemy (ranged)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793867378746810457, guid: 5250e01f2abcdacd498637f41f1e49cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5250e01f2abcdacd498637f41f1e49cd, type: 3}

@@ -15,7 +15,7 @@ public class Melee_Movement : MonoBehaviour
     private float targetRange;
 
     [SerializeField]
-    private Transform weapon;
+    private meleeItemCotroller weapon;
     [SerializeField]
     private int angle = 45;
 
@@ -25,6 +25,7 @@ public class Melee_Movement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController2D>();
+        weapon.setOwner(gameObject);
     }
 
     // Update is called once per frame
@@ -58,14 +59,11 @@ public class Melee_Movement : MonoBehaviour
             // Close Range
             if (beegSmack)
             {
-                //Debug.Log("UNWHACK");
-                weapon.rotation *= Quaternion.Euler(0, 0, angle);
                 beegSmack = false;
             }
             else
             {
-                weapon.rotation *= Quaternion.Euler(0, 0, (angle*-1));
-                //Debug.Log("WHACK");
+                weapon.whack();
                 beegSmack = true;
             }
         }
