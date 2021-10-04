@@ -164,12 +164,11 @@ public class CharacterController2D : MonoBehaviour
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             hasjumped = true;
-            if (gameObject.name == "player")
-            {
-                Debug.Log("m_groundGrace < m_MaxGroundGrace: " + (m_groundGrace < m_MaxGroundGrace));
-                Debug.Log("jump: " + jump);
-                Debug.Log("!hasjumped: " + !hasjumped);
-            }
+        }
+
+        if (m_Rigidbody2D.velocity.y > 0)
+        {
+            m_Rigidbody2D.velocity = Vector2.ClampMagnitude(m_Rigidbody2D.velocity, 10f);
         }
     }
 
